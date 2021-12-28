@@ -1,15 +1,15 @@
 <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Приложение Игр</a>
+      <a href="#" class="brand-logo">App for games</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>
-            <a href="/">Главная</a>
+        <li class="{{#if isHome}}active{{/if}}">
+            <a href="/">Home</a>
         </li>
-        <li>
-            <a href="/arcad">Аркады</a>
+        <li class="{{#if isAdd}}active{{/if}}">
+            <a href="/add">Add</a>
         </li>
-        <li>
-            <a href="/strategy">Стратегии</a>
+        <li class="{{#if isGames}}active{{/if}}">
+            <a href="/games">Games</a>
         </li>
       </ul>
     </div>
