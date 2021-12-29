@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const exphbs = require('express-handlebars')
+
 const homeRoutes = require('./routes/home')
 const addRoutes = require('./routes/add')
 const gamesRoutes = require('./routes/games')
@@ -16,6 +17,7 @@ app.set('views', 'views')
 
 // подключили статику (css)
 app.use(express.static('public'))
+app.use(express.urlencoded({extends: true}))//добавили middleware на обработку POST Запроса
 
 // подключили роуты
 app.use('/', homeRoutes)
