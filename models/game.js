@@ -55,6 +55,11 @@ class Game {
         )
       })
     }
+
+    static async getById(id) {
+      const games = await Game.getAll();
+      return games.find(game => game.id === id)
+    }
 }
 
 module.exports = Game
