@@ -1,0 +1,23 @@
+<h1>Edit game {{game.title}}</h1>
+
+<form action="/games/edit" method="POST">
+    <div class="input-field">
+        <input id="title" name="title" type="text" class="validate" required value="{{game.title}}">
+        <label for="title">Name</label>
+        <span class="helper-text" data-error="Add name"></span>
+    </div>
+    <div class="input-field">
+        <input id="price" name="price" type="text" class="validate" required min="1" value="{{game.price}}">
+        <label for="price">Price</label>
+        <span class="helper-text" data-error="Add price"></span>
+    </div>
+    <div class="input-field">
+        <input id="img" name="img" type="text" class="validate" required value="{{game.img}}">
+        <label for="img">Image path</label>
+        <span class="helper-text" data-error="Add image path"></span>
+    </div>
+
+    <input type="hidden" name="id" value="{{game.id}}">
+
+    <button class="btn btn-primary">Edit game</button>
+</form>

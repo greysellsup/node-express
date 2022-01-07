@@ -3,7 +3,7 @@ const app = express()
 const exphbs = require('express-handlebars')
 const homeRoutes = require('./routes/home')
 const addRoutes = require('./routes/add')
-const gamesRoutes = require('./routes/game')
+const gamesRoutes = require('./routes/games')
 
 //подключили handlebars
 const hbs =  exphbs.create({

@@ -11,14 +11,33 @@ class Game {
     }
 
     toJSON() {
-        return {
-          title: this.title,
-          price: this.price,
-          img: this.img,
-          id: this.id
-        }
+      return {
+        title: this.title,
+        price: this.price,
+        img: this.img,
+        id: this.id
       }
+    }
 
+    static async update(game) {
+      const games = await Game.getAll();
+      games[games.findIndex(item => item.id === game.id)] = game;
+
+      return new Promise((resolve, reject) => {
+        fs.writeFile(
+          path.join(__dirname, '..', 'data', 'games.json'),
+          JSON.stringify(games),
+          (err) => {
+            if (err) {
+              
+                reject(err)
+            } else {
+                resolve()
+            }
+          }
+        )
+      })
+    }
     
     async save() {
       const games = await Game.getAll();
