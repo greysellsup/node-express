@@ -1,12 +1,13 @@
 const express = require('express')
 const app = express()
 const exphbs = require('express-handlebars')
-
+const path = require('path')
 // регистируем роуты
 const homeRoutes = require('./routes/home')
 const addRoutes = require('./routes/add')
 const gamesRoutes = require('./routes/games')
 const cardRoutes = require('./routes/card')
+const { patch } = require('./routes/home')
 
 //подключили handlebars
 const hbs =  exphbs.create({
@@ -18,7 +19,7 @@ app.set('view engine', 'hbs')
 app.set('views', 'views')
 
 // подключили статику (css)
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({extends: true}))//добавили middleware на обработку POST Запроса
 
 // подключили роуты

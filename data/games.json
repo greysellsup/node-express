@@ -6,8 +6,8 @@
         "id": "8ae92db5-97f4-494c-ade8-a258d931d61e"
     },
     {
-        "title": "newGame",
-        "price": "8000",
+        "title": "newGame1",
+        "price": "8001",
         "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Video-Game-Controller-Icon-IDV-green.svg/2048px-Video-Game-Controller-Icon-IDV-green.svg.png",
         "id": "dab2263b-e95b-4c24-afc6-0b1ae94205ff"
     },
@@ -16,5 +16,11 @@
         "price": "6000",
         "img": "https://c.files.bbci.co.uk/E909/production/_112375695_crucible976.jpg",
         "id": "42db22c4-c293-40fc-8e34-3b7265e6957c"
+    },
+    {
+        "title": "sims",
+        "price": "15000",
+        "img": "https://media.contentapi.ea.com/content/dam/gin/images/2017/01/the-sims-mobile-key-art.jpg.adapt.crop1x1.767p.jpg",
+        "id": "68892c0d-67e5-4de8-952b-930a537f8a40"
     }
 ]

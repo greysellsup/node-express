@@ -33,6 +33,29 @@ class Card {
       })
     })
   }
+
+  //метод удаления игры
+  static async remove(id){
+    const card = await Card.fetch();
+    const index = card.games.findIndex(item => item.id === id)
+    const game = card.games[index];
+    
+    if(game.count === 1){
+        card.games = card.games.filter(item => item.id != id)
+    }else{
+      card.games[index].count--;
+    }
+
+    card.price -= game.price //обновляем сумму в корзине
+
+    //обновляем игры в JSON корзины
+    return new Promise((resolve, reject)=>{
+      fs.writeFile(p, JSON.stringify(card), err => {
+        err ? reject(err) : resolve(card)
+      })
+    })
+  }
+
   
   //получаем данные о играх в корзине
   static async fetch(){
