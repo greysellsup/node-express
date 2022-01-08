@@ -2,6 +2,15 @@
     padding: 0 2rem;
 }
 
+/**/
+.card {
+    min-height: 500px;
+    position: relative;
+}
+.card .card-action {
+    font-size: .8rem;
+}
+
 .price {
     font-size: 2rem;
 }
