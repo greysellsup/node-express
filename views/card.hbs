@@ -1,1 +1,30 @@
 <h1>Card</h1>
+
+
+{{#if games.length}}
+    <table>
+        <thead>
+            <tr>
+                <td>Title</td>
+                <td>Count</td>
+                <td>Price</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each games}}
+                <tr>
+                    <td>{{title}}</td>
+                    <td>{{count}}</td>
+                    <td>{{price}}</td>
+                    <td>
+                        <button class="btn btn-small">delete</button>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <p><strong>Price: </strong><span class="price">{{price}}</span></p>
+{{else}}
+    <p>basket is empty</p>
+{{/if}}
