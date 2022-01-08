@@ -1,5 +1,4 @@
-const PRICES = document.querySelectorAll('.price');
-
+//форматируем значение цены.
 const toCurrency = price => {
     return new Intl.NumberFormat('ru-RU', {
         currency: 'rub',
@@ -7,17 +6,19 @@ const toCurrency = price => {
         minimumFractionDigits: 0
     }).format(price)
 }
-PRICES.forEach(node=>{
-    node.textContent = toCurrency(node.textContent);
+
+//применяем форматирование всех цен в списке игр
+const PRICES = document.querySelectorAll('[data-price]');
+PRICES.forEach(item => {
+    item.textContent = toCurrency(item.textContent);
 })
 
 //обрабатываем клик по кнопке "удалить"
-const $card = document.querySelector('#card')
+const $card = document.getElementById('card')
 if($card){
-    $card.addEventListener('click', event=>{
-        if(event.target.classList.contains('js-remove')){
-            const id = event.target.dataset.id
-            console.log(id);
+    $card.addEventListener('click', event => {
+        if(event.target.getAttribute('data-btn-remove')){
+            const id = event.target.getAttribute('data-btn-remove')
 
             fetch(`card/remove/${id}`,{
                 method: 'delete',
@@ -27,17 +28,17 @@ if($card){
                 if(card.games.length){
                     const html = card.games.map(item =>{
                         return `
-                        <tr>
-                            <td>${item.title}</td>
-                            <td>${item.count}</td>
-                            <td>${item.price}</td>
-                            <td>
-                                <button class="btn btn-small js-remove" data-id=${item.id}>delete</button>
-                            </td>
-                        </tr>`
+                            <tr>
+                                <td>${item.title}</td>
+                                <td>${item.count}</td>
+                                <td>${item.price}</td>
+                                <td>
+                                    <button class="btn btn-small" data-btn-remove=${item.id}>delete</button>
+                                </td>
+                            </tr>`
                     }).join('');
                     $card.querySelector('tbody').innerHTML = html;
-                    $card.querySelector('.price').textContent = toCurrency(card.price);
+                    $card.querySelector('[data-price]').textContent = toCurrency(card.price);
                 }else{
                     $card.innerHTML = '<p>Basket is empty</p>'
                 }
